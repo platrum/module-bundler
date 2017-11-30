@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const AssetsPlugin = require('assets-webpack-plugin');
 
+const moduleName = process.env.MODULE_NAME;
+
 const plugins = [
   new AssetsPlugin({
     filename: 'assets.json',
@@ -10,7 +12,7 @@ const plugins = [
 ];
 
 const output = {
-  library: 'ui_[name]',
+  library: 'module_' + moduleName + '_[name]',
   path: '/assets',
   publicPath: '/assets/',
   filename: '[name].js'
