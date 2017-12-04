@@ -12,7 +12,7 @@ const plugins = [
 ];
 
 const output = {
-  library: 'module_' + moduleName + '_[name]',
+  library: 'module_' + moduleName.replace('-', '_') + '_[name]',
   path: '/assets',
   publicPath: '/assets/',
   filename: '[name].js'
@@ -47,11 +47,24 @@ if (process.env.NODE_ENV === 'production') {
   );
 }
 
+const path = require('path');
+const fs = require('fs');
+
+const possibleEntries = {
+  'app': './src/app.js',
+  'pages': './src/pages.js',
+  'marketplace': './src/marketplace.js',
+};
+
+const entry = {};
+Object.keys(possibleEntries).forEach(k => {
+  if (fs.existsSync(path.resolve(possibleEntries[k]))) {
+    entry[k] = possibleEntries[k];
+  }
+});
+
 module.exports = {
-  entry: {
-    app: './src/app.js',
-    pages: './src/pages.js'
-  },
+  entry,
   resolve: {
     extensions: [ '.js', '.vue', '.less' ]
   },
