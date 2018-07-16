@@ -21,6 +21,8 @@
     "webpack": "^3.11.0"
   },
   "dependencies": {
-    "npm": "^6.0.0"
+    "npm": "^6.0.0",
+    "style-loader": "^0.21.0",
+    "vue": "^2.5.16"
   }
 }

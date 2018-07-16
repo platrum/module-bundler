@@ -68,9 +68,9 @@ module.exports = {
   resolve: {
     extensions: [ '.js', '.vue', '.less' ]
   },
-  externals: {
-    'vue': 'Vue',
-  },
+  // externals: {
+  //   'vue': 'Vue',
+  // },
   output,
   module: {
     loaders: [
